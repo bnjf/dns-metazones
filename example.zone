@@ -1,0 +1,26 @@
+$ORIGIN fh-sa.mz.vix.com.
+$TTL 3600
+
+@ SOA ( ns.lah1.vix.com. hostmaster.vix.com. 2005050704 3600 1800 604800 42 ) ;
+@ NS ns.lah1.vix.com.
+@ NS ns.sql1.vix.com.
+
+masters         RT      10 ns-lah1.servers
+
+allow-transfer  MG      fh-sa.tsig.vix.com.
+                MG      ns-ext.
+
+also-notify     RT      10 ns-ext.servers
+
+;
+$ORIGIN servers.fh-sa.mz.vix.com.
+ns-lah1 A       204.152.188.234
+        AAAA    2001:4f8:2::9
+ns-ext  A       204.152.184.64
+        AAAA    2001:4f8:0:2::13
+
+;
+$ORIGIN zones.fh-sa.mz.vix.com.
+vix.com         PTR     vix.com.
+anog.net        PTR     anog.net.
+anog.org        PTR     anog.org.
